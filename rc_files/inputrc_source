@@ -1,0 +1,17 @@
+# Search history with up and down arrow keys
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\eOA": history-search-backward
+"\eOB": history-search-forward
+
+# Find out why these don't work at some point later
+# Control + arrow keys
+#"\e[1;5D": beginning-of-line
+#"\e[1;5C": end-of-line
+
+# Control + Delete
+#"\e[3;2~": backward-kill-line
+
+
+
+
