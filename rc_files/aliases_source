@@ -1,4 +1,6 @@
-alias ls='ls -G' # or you could just set CLICOLOR=1
-alias android_studio='open /Applications/Android\ Studio.app'
-# alias ipython="source activate nitish_python_env; ipython"
-alias mongod="mongod --dbpath ~/mongodb/data/db"
+if [ `uname` = 'Darwin' ]
+then
+    alias android_studio='open /Applications/Android\ Studio.app'
+    # alias ipython="source activate nitish_python_env; ipython"
+    alias mongod="mongod --dbpath ~/mongodb/data/db"
+fi

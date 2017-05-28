@@ -3,21 +3,33 @@ export PS1="\[\e[0;31m\]\t\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\
 
 # for ls colors
 # read: https://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output 
-export LSCOLORS=ExFxCxDxBxegedabagacad
+# Mac vs Linux
+if [ `uname` = 'Linux' ]
+then
+    alias ls='ls --color=auto'
+    export LS_COLORS=ExFxCxDxBxegedabagacad
+else
+    alias ls='ls -G' # or set CLICOLOR=1
+    export LSCOLORS=ExFxCxDxBxegedabagacad
+fi
 
-# For android studio
-export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk
+# PC path manupulations
+if [ `uname` == 'Darwin' ]
+then
+    # For android studio
+    export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk
  
-# added by Miniconda2 4.0.5 installer
-export PATH="/Users/nitish/miniconda2/bin:$PATH"
+    # added by Miniconda2 4.0.5 installer
+    export PATH="/Users/nitish/miniconda2/bin:$PATH"
 
-# add mongodb to the path
-export PATH="/Users/nitish/mongodb/bin:$PATH"
+    # add mongodb to the path
+    export PATH="/Users/nitish/mongodb/bin:$PATH"
 
-# fix for "Unknown Locale" error
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
+    # fix for "Unknown Locale" error
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+fi
+ 
 # handle history
 export HISTCONTROL=erasedups # no duplicates
 export HISTSIZE=50000        # larger history
@@ -30,4 +42,3 @@ source ~/.aliases
 if [ -f ~/.bashrc ]; then
     source ~/.bashrc
 fi
-
