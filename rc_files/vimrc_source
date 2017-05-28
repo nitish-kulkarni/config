@@ -2,6 +2,7 @@
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
 set shellslash
 set grepprg=grep\ -nH\ $*
 filetype indent on
