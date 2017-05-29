@@ -16,6 +16,7 @@ let g:tex_flavor='latex'
 colorscheme desert  " to be changed ex. badwolf
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
+set shiftwidth=4
 
 set expandtab       " tabs are spaces
 set number          " show line numbers
@@ -25,9 +26,24 @@ set wildmenu        " visual autocomplete for command menu
 set showmatch       " highlight matching [{()}]
 
 " Searching
-set incsearch   " search as characters are entered
-set hlsearch    " highlight matches
 nnoremap <leader><space> :nohlsearch<CR>  " turn off search highlight
+
+" Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+" search as characters are entered
+set incsearch
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l      " Go to the next line after the line ends 
 
 " Folding
 " set foldenable          " enable folding
@@ -59,7 +75,35 @@ noremap <C-s> <C-u>
 " jj is escape
 " inoremap jj <esc>                   
 " save session
-nnoremap <leader>s :mksession<CR> 
+nnoremap <leader>s :mksession<CR>
+
+" Toggle paste mode on and off automatically
+" read: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
+" Modifications required for Tmux 
+"
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+""
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+""
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
+""
+""
 
 " pasting ( use system clipboard )
 " set clipboard^=unnamed,unnamedplus

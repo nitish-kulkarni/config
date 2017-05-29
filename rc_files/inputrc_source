@@ -4,6 +4,9 @@
 "\eOA": history-search-backward
 "\eOB": history-search-forward
 
+# no bell rings
+set bell-style none
+
 # Find out why these don't work at some point later
 # Control + arrow keys
 #"\e[1;5D": beginning-of-line
