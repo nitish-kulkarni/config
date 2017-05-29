@@ -34,6 +34,7 @@ fi
 export HISTCONTROL=erasedups # no duplicates
 export HISTSIZE=50000        # larger history
 shopt -s histappend          # append every session's history to ~/.bash_history
+export HISTTIMEFORMAT="%d/%m/%y %T " # show history with timestamps
 
 # source aliases
 source ~/.aliases

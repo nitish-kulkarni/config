@@ -44,6 +44,10 @@ set incsearch
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l      " Go to the next line after the line ends 
+" backspace in cmd mode
+" nnoremap <bs> X
+" space in normal mode
+" nnoremap <space> i<space><esc>
 
 " Folding
 " set foldenable          " enable folding
