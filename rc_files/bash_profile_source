@@ -11,7 +11,7 @@ else
     alias jsonhead='python ~/docs/projects/utils/json_head.py'
     alias jsonlen='python ~/docs/projects/utils/json_len.py'
     # Set python path to pwd
-    alias pypath='PYTHONPATH="`pwd`:$PYTHONPATH"'
+    alias pypath='export PYTHONPATH="`pwd`":$PYTHONPATH'
     # read: https://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output 
     export LSCOLORS=ExFxCxDxBxegedabagacad
     export PS1="\[\e[0;31m\]\t\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;31m\]\$ \[\e[m\]\[\e[0;32m\]"
